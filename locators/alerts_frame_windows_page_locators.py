@@ -6,3 +6,12 @@ class BrowserWindowPageLocators:
     NEW_WINDOW_BUTTON = (By.CSS_SELECTOR, 'button#windowButton')
 
     NEW_TAB_TITLE = (By.CSS_SELECTOR, 'h1#sampleHeading')
+
+
+class AlertsPageLocators:
+    SEE_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#alertButton')
+    APPEAR_ALERT_AFTER_5_SEC_BUTTON = (By.CSS_SELECTOR, 'button#timerAlertButton')
+    CONFIRM_BOX_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#confirmButton')
+    CONFIRM_RESULT = (By.CSS_SELECTOR, 'span#confirmResult')
+    PROMPT_BOX_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#promtButton')
+    PROMPT_RESULT = (By.CSS_SELECTOR, 'span#promptResult')
