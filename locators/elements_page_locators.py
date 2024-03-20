@@ -66,3 +66,8 @@ class TestButtonsPageLocators:
     SUCCESS_DOUBLE = (By.CSS_SELECTOR, "p#doubleClickMessage")
     SUCCESS_RIGHT = (By.CSS_SELECTOR, "p#rightClickMessage")
     SUCCESS_CLICK_ME = (By.CSS_SELECTOR, "p#dynamicClickMessage")
+
+
+class LinksPageLocators:
+    SIMPLE_LINK = (By.CSS_SELECTOR, "a#simpleLink")
+    BAD_REQUEST = (By.CSS_SELECTOR, "a#bad-request")
