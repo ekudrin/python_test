@@ -2,7 +2,7 @@ import random
 import time
 
 from locators.alerts_frame_windows_page_locators import BrowserWindowPageLocators, AlertsPageLocators, \
-    FramesPageLocators
+    FramesPageLocators, NestedFramesPageLocators
 from pages.base_page import BasePage
 
 
@@ -55,7 +55,7 @@ class AlertsPage(BasePage):
 class FramesPage(BasePage):
     locators = FramesPageLocators()
 
-    def check_frame(self,frame_num):
+    def check_frame(self, frame_num):
         if frame_num == 'frame1':
             frame = self.element_is_present(self.locators.FIRST_FRAME)
         else:
@@ -67,3 +67,15 @@ class FramesPage(BasePage):
         self.driver.switch_to.default_content()
         return [width, height, text]
 
+
+class NestedFramesPage(BasePage):
+    locators = NestedFramesPageLocators()
+
+    def check_nested_frame(self):
+        parent_frame = self.element_is_present(self.locators.PARENT_FRAME)
+        self.driver.switch_to.frame(parent_frame)
+        parent_text = self.element_is_present(self.locators.PARENT_TEXT).text
+        child_frame = self.element_is_present(self.locators.CHILD_FRAME)
+        self.driver.switch_to.frame(child_frame)
+        child_text = self.element_is_present(self.locators.CHILD_TEXT).text
+        return parent_text, child_text
