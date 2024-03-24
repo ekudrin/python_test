@@ -166,6 +166,7 @@ class ToolTipsPage(BasePage):
         self.action_move_to_element(element)
         self.element_is_visible(wait_elem)
         tool_tip_text = self.element_is_visible(self.locators.HOVER_TEXT)
+        time.sleep(2)
         text = tool_tip_text.text
         return text
 
