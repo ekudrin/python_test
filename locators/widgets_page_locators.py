@@ -53,7 +53,7 @@ class TabsPageLocators:
     TABS_MORE_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-more')
 
 
-class ToolTipsPagePageLocators:
+class ToolTipsPageLocators:
     TOOL_TIP_BUTTON = (By.CSS_SELECTOR, 'button#toolTipButton')
     HOVER_TOOL_TIP_BUTTON = (By.CSS_SELECTOR, 'button[aria-describedby="buttonToolTip"]')
 
@@ -67,3 +67,7 @@ class ToolTipsPagePageLocators:
     HOVER_TOOL_TIP_SECTION = (By.CSS_SELECTOR, 'a[aria-describedby="sectionToolTip"]')
 
     HOVER_TEXT = (By.CSS_SELECTOR, 'div.tooltip-inner')
+
+
+class MenuPageLocators:
+    MENU_ITEM_LIST = (By.CSS_SELECTOR, 'ul#nav li a')
