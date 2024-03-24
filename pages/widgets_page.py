@@ -6,7 +6,7 @@ from selenium.webdriver.support.select import Select
 
 from generator.generator import generated_color, generated_date
 from locators.widgets_page_locators import AccordianPageLocators, AutoCompletePageLocators, DatePickerPageLocators, \
-    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators
+    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators, ToolTipsPagePageLocators
 from pages.base_page import BasePage
 
 
@@ -145,14 +145,38 @@ class TabsPage(BasePage):
         what_button = self.element_is_visible(self.locators.TABS_WHAT)
         origin_button = self.element_is_visible(self.locators.TABS_ORIGIN)
         use_button = self.element_is_visible(self.locators.TABS_USE)
-        #more_button = self.element_is_visible(self.locators.TABS_MORE)
+        # more_button = self.element_is_visible(self.locators.TABS_MORE)
         what_button.click()
         what_content = self.element_is_visible(self.locators.TABS_WHAT_CONTENT).text
         origin_button.click()
         origin_content = self.element_is_visible(self.locators.TABS_ORIGIN_CONTENT).text
         use_button.click()
         use_content = self.element_is_visible(self.locators.TABS_USE_CONTENT).text
-       # more_button.click()
-       # more_content = self.element_is_visible(self.locators.TABS_WHAT_CONTENT)
+        # more_button.click()
+        # more_content = self.element_is_visible(self.locators.TABS_WHAT_CONTENT)
         return what_button.text, len(what_content), origin_button.text, len(origin_content), use_button.text, len(
             use_content)
+
+
+class ToolTipsPage(BasePage):
+    locators = ToolTipsPagePageLocators()
+
+    def get_text_from_tool_tips(self, hover_elem, wait_elem):
+        element = self.element_is_present(hover_elem)
+        self.action_move_to_element(element)
+        self.element_is_visible(wait_elem)
+        tool_tip_text = self.element_is_visible(self.locators.HOVER_TEXT)
+        text = tool_tip_text.text
+        return text
+
+    def check_tool_tips(self):
+        time.sleep(5)
+        tool_tip_text_button = self.get_text_from_tool_tips(self.locators.TOOL_TIP_BUTTON,
+                                                            self.locators.HOVER_TOOL_TIP_BUTTON)
+        tool_tip_text_field = self.get_text_from_tool_tips(self.locators.TOOL_TIP_FIELD,
+                                                           self.locators.HOVER_TOOL_TIP_FIELD)
+        tool_tip_text_contrary = self.get_text_from_tool_tips(self.locators.TOOL_TIP_CONTRARY,
+                                                              self.locators.HOVER_TOOL_TIP_CONTRARY)
+        tool_tip_text_section = self.get_text_from_tool_tips(self.locators.TOOL_TIP_SECTION,
+                                                             self.locators.HOVER_TOOL_TIP_SECTION)
+        return tool_tip_text_button, tool_tip_text_field, tool_tip_text_contrary, tool_tip_text_section

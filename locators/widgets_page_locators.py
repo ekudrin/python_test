@@ -41,6 +41,7 @@ class ProgressBarPageLocators:
     PROGRESS_BAR_BUTTON = (By.CSS_SELECTOR, 'button#startStopButton')
     PROGRESS_BAR_VALUE = (By.CSS_SELECTOR, 'div.progress-bar')
 
+
 class TabsPageLocators:
     TABS_WHAT = (By.CSS_SELECTOR, 'a#demo-tab-what')
     TABS_WHAT_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-what')
@@ -51,3 +52,18 @@ class TabsPageLocators:
     TABS_MORE = (By.CSS_SELECTOR, 'a#demo-tab-more')
     TABS_MORE_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-more')
 
+
+class ToolTipsPagePageLocators:
+    TOOL_TIP_BUTTON = (By.CSS_SELECTOR, 'button#toolTipButton')
+    HOVER_TOOL_TIP_BUTTON = (By.CSS_SELECTOR, 'button[aria-describedby="buttonToolTip"]')
+
+    TOOL_TIP_FIELD = (By.CSS_SELECTOR, 'div#texFieldToolTopContainer input#toolTipTextField')
+    HOVER_TOOL_TIP_FIELD = (By.CSS_SELECTOR, 'input[aria-describedby="textFieldToolTip"]')
+
+    TOOL_TIP_CONTRARY = (By.XPATH, '//*[.="Contrary"]')
+    HOVER_TOOL_TIP_CONTRARY = (By.CSS_SELECTOR, 'a[aria-describedby="contraryTexToolTip"]')
+
+    TOOL_TIP_SECTION = (By.XPATH, '//*[.="1.10.32"]')
+    HOVER_TOOL_TIP_SECTION = (By.CSS_SELECTOR, 'a[aria-describedby="sectionToolTip"]')
+
+    HOVER_TEXT = (By.CSS_SELECTOR, 'div.tooltip-inner')
