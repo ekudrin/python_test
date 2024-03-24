@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 def driver():
     options = Options()
     options.set_capability('unhandledPromptBehavior', 'accept')
-    options.page_load_strategy = 'eager'  # В обычном режиме сайт ждет ответ от апи >10 секунд,замедляет работу всех тестов
+    #options.page_load_strategy = 'eager'  # В обычном режиме сайт ждет ответ от апи >10 секунд,замедляет работу всех тестов
     driver = webdriver.Chrome(options)
     driver.maximize_window()
     yield driver
